@@ -631,7 +631,8 @@ class Instaloader:
         # Save metadata as JSON if desired.
         if self.save_metadata is not False:
             self.save_metadata_json(filename, item)
-        item.mark_as_seen()
+        if downloaded:
+            item.mark_as_seen()
         self.context.log()
         return downloaded
 
